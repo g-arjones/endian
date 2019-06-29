@@ -1,0 +1,11 @@
+find_library(Endian_LIBRARY endian
+  PATHS "@CMAKE_INSTALL_PREFIX@/lib"
+)
+
+list(APPEND Endian_INCLUDE_DIR
+  @CMAKE_INSTALL_PREFIX@/include
+)
+
+set(Endian_LIBRARIES ${Endian_LIBRARY})
+set(Endian_LIBS ${Endian_LIBRARY})
+set(Endian_INCLUDE_DIRS ${Endian_INCLUDE_DIR})
