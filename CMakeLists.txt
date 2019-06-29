@@ -3,7 +3,9 @@ project(Endian VERSION 0.1)
 
 add_library(endian STATIC
   src/be_uint16_t.cpp
+  src/be_uint24_t.cpp
   src/le_uint16_t.cpp
+  src/le_uint24_t.cpp
 )
 
 include_directories(include)
@@ -26,7 +28,9 @@ function(endian_add_test TEST_NAME)
 endfunction()
 
 endian_add_test(be_uint16_t)
+endian_add_test(be_uint24_t)
 endian_add_test(le_uint16_t)
+endian_add_test(le_uint24_t)
 
 install(
   TARGETS endian

@@ -14,19 +14,20 @@
  *  limitations under the License.
  */
 
-#include "test_common.h"
+#ifndef ENDIAN_BE_UINT24_T_H_
+#define ENDIAN_BE_UINT24_T_H_
+
 #include <stdint.h>
-#include <endian/endian.h>
+#include <endian/endian_base_t.h>
 
-using endian::be_uint16_t;
+namespace endian {
 
-int g_status;
+ENDIAN_BEGIN_CLASS(be_uint24_t, uint32_t)
+ private:
+  uint8_t msb_;  // big-endian: msb first
+  uint8_t mid_;  // middle byte
+  uint8_t lsb_;  // big-endian: lsb last
+ENDIAN_END_CLASS(be_uint24_t, uint32_t)
 
-int main(int argc, char **argv) {
-  uint8_t data[] = {0xaa, 0xbb, 0x00, 0x16, 0xcc, 0xdd};
-
-  ASSERT(sizeof(be_uint16_t) == 2);
-  testCommon<be_uint16_t>(data, sizeof(data));
-
-  return g_status;
-}
+};  // namespace endian
+#endif  // ENDIAN_BE_UINT24_T_H_

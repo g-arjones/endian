@@ -19,8 +19,10 @@
 
 #include <endian/le_uint8_t.h>
 #include <endian/le_uint16_t.h>
+#include <endian/le_uint24_t.h>
 
 #include <endian/be_uint8_t.h>
 #include <endian/be_uint16_t.h>
+#include <endian/be_uint24_t.h>
 
 #endif  // ENDIAN_ENDIAN_H_

@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-#include "./test_common.h"
+#include "test_common.h"
 #include <stdint.h>
 #include <endian/endian.h>
 

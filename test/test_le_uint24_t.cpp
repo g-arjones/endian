@@ -18,15 +18,15 @@
 #include <stdint.h>
 #include <endian/endian.h>
 
-using endian::be_uint16_t;
+using endian::le_uint24_t;
 
 int g_status;
 
 int main(int argc, char **argv) {
-  uint8_t data[] = {0xaa, 0xbb, 0x00, 0x16, 0xcc, 0xdd};
+  uint8_t data[] = {0xbb, 0xaa, 0x00, 0x16, 0x00, 0x00, 0xdd, 0xcc, 0x00};
 
-  ASSERT(sizeof(be_uint16_t) == 2);
-  testCommon<be_uint16_t>(data, sizeof(data));
+  ASSERT(sizeof(le_uint24_t) == 3);
+  testCommon<le_uint24_t>(data, sizeof(data));
 
   return g_status;
 }

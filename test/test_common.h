@@ -20,6 +20,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <math.h>
 #include <iostream>
 
 template <typename T>
@@ -168,8 +169,9 @@ void testCommon(const uint8_t *data, size_t size) {
   bar.a = 0xFF00;
   ASSERT((bar.a >> 8) == 0x00FF);
 
+  bar.a = 0;
   bar.a = ~bar.a;
-  ASSERT(bar.a == 0x00FF);
+  ASSERT(bar.a == pow(2, sizeof(T) * 8)-1);
 }
 
 #endif  // TEST_TEST_COMMON_H_

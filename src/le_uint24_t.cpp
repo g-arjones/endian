@@ -14,19 +14,18 @@
  *  limitations under the License.
  */
 
-#include "test_common.h"
+#include <endian/le_uint24_t.h>
 #include <stdint.h>
-#include <endian/endian.h>
 
-using endian::be_uint16_t;
+namespace endian {
 
-int g_status;
+le_uint24_t::le_uint24_t() : lsb_(0), mid_(0), msb_(0) {}
 
-int main(int argc, char **argv) {
-  uint8_t data[] = {0xaa, 0xbb, 0x00, 0x16, 0xcc, 0xdd};
+le_uint24_t::le_uint24_t(const uint32_t &val)
+  : lsb_(val & 0xFF)
+  , mid_((val >> 8) & 0xFF)
+  , msb_((val >> 16) & 0xFF) {}
 
-  ASSERT(sizeof(be_uint16_t) == 2);
-  testCommon<be_uint16_t>(data, sizeof(data));
+le_uint24_t::operator uint32_t() const { return (lsb_ | (mid_ << 8) | (msb_ << 16)); }
 
-  return g_status;
-}
+};  // namespace endian
