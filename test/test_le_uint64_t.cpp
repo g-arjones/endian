@@ -14,17 +14,21 @@
  *  limitations under the License.
  */
 
-#ifndef ENDIAN_ENDIAN_H_
-#define ENDIAN_ENDIAN_H_
+#include "test_common.h"
+#include <stdint.h>
+#include <endian/endian.h>
 
-#include <endian/le_uint8_t.h>
-#include <endian/le_uint16_t.h>
-#include <endian/le_uint32_t.h>
-#include <endian/le_uint64_t.h>
+using endian::le_uint64_t;
 
-#include <endian/be_uint8_t.h>
-#include <endian/be_uint16_t.h>
-#include <endian/be_uint32_t.h>
-#include <endian/be_uint64_t.h>
+int g_status;
 
-#endif  // ENDIAN_ENDIAN_H_
+int main(int argc, char **argv) {
+  uint8_t data[] = {0xbb, 0xaa, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0x16, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0xdd, 0xcc, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+  ASSERT(sizeof(le_uint64_t) == 8);
+  testCommon<le_uint64_t>(data, sizeof(data));
+
+  return g_status;
+}

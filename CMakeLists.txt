@@ -27,8 +27,10 @@ endfunction()
 
 endian_add_test(be_uint16_t)
 endian_add_test(be_uint32_t)
+endian_add_test(be_uint64_t)
 endian_add_test(le_uint16_t)
 endian_add_test(le_uint32_t)
+endian_add_test(le_uint64_t)
 
 install(
   TARGETS endian

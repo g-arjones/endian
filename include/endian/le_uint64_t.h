@@ -14,17 +14,14 @@
  *  limitations under the License.
  */
 
-#ifndef ENDIAN_ENDIAN_H_
-#define ENDIAN_ENDIAN_H_
+#ifndef ENDIAN_LE_UINT64_T_H_
+#define ENDIAN_LE_UINT64_T_H_
 
-#include <endian/le_uint8_t.h>
-#include <endian/le_uint16_t.h>
-#include <endian/le_uint32_t.h>
-#include <endian/le_uint64_t.h>
+#include <endian/endian_base.h>
 
-#include <endian/be_uint8_t.h>
-#include <endian/be_uint16_t.h>
-#include <endian/be_uint32_t.h>
-#include <endian/be_uint64_t.h>
+namespace endian {
 
-#endif  // ENDIAN_ENDIAN_H_
+typedef endian_base<uint64_t, endianness_t::LITTLE> le_uint64_t;
+
+};  // namespace endian
+#endif  // ENDIAN_LE_UINT64_T_H_
