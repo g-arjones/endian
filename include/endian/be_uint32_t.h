@@ -14,8 +14,8 @@
  *  limitations under the License.
  */
 
-#ifndef ENDIAN_BE_UINT24_T_H_
-#define ENDIAN_BE_UINT24_T_H_
+#ifndef ENDIAN_BE_UINT32_T_H_
+#define ENDIAN_BE_UINT32_T_H_
 
 #include <endian/endian_base.h>
 
@@ -24,4 +24,4 @@ namespace endian {
 typedef endian_base<uint32_t, endianness_t::BIG> be_uint32_t;
 
 };  // namespace endian
-#endif  // ENDIAN_BE_UINT24_T_H_
+#endif  // ENDIAN_BE_UINT32_T_H_
