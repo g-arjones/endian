@@ -14,18 +14,14 @@
  *  limitations under the License.
  */
 
-#include <endian/be_uint24_t.h>
-#include <stdint.h>
+#ifndef ENDIAN_LE_UINT24_T_H_
+#define ENDIAN_LE_UINT24_T_H_
+
+#include <endian/endian_base.h>
 
 namespace endian {
 
-be_uint24_t::be_uint24_t() : msb_(0), mid_(0), lsb_(0) {}
-
-be_uint24_t::be_uint24_t(const uint32_t &val)
-  : msb_((val >> 16) & 0xFF)
-  , mid_((val >> 8) & 0xFF)
-  , lsb_(val & 0xFF) {}
-
-be_uint24_t::operator uint32_t() const { return (lsb_ | (mid_ << 8) | (msb_ << 16)); }
+typedef endian_base<uint32_t, endianness_t::LITTLE> le_uint32_t;
 
 };  // namespace endian
+#endif  // ENDIAN_LE_UINT24_T_H_

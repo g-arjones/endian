@@ -17,17 +17,11 @@
 #ifndef ENDIAN_BE_UINT24_T_H_
 #define ENDIAN_BE_UINT24_T_H_
 
-#include <stdint.h>
-#include <endian/endian_base_t.h>
+#include <endian/endian_base.h>
 
 namespace endian {
 
-ENDIAN_BEGIN_CLASS(be_uint24_t, uint32_t)
- private:
-  uint8_t msb_;  // big-endian: msb first
-  uint8_t mid_;  // middle byte
-  uint8_t lsb_;  // big-endian: lsb last
-ENDIAN_END_CLASS(be_uint24_t, uint32_t)
+typedef endian_base<uint32_t, endianness_t::BIG> be_uint32_t;
 
 };  // namespace endian
 #endif  // ENDIAN_BE_UINT24_T_H_

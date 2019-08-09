@@ -14,19 +14,7 @@
  *  limitations under the License.
  */
 
-#include "test_common.h"
-#include <stdint.h>
-#include <endian/endian.h>
+#include <endian/endian_base.h>
 
-using endian::be_uint24_t;
-
-int g_status;
-
-int main(int argc, char **argv) {
-  uint8_t data[] = {0x00, 0xaa, 0xbb, 0x00, 0x00, 0x16, 0x00, 0xcc, 0xdd};
-
-  ASSERT(sizeof(be_uint24_t) == 3);
-  testCommon<be_uint24_t>(data, sizeof(data));
-
-  return g_status;
-}
+namespace endian {
+};  // namespace endian

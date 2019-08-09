@@ -17,16 +17,11 @@
 #ifndef ENDIAN_LE_UINT16_T_H_
 #define ENDIAN_LE_UINT16_T_H_
 
-#include <stdint.h>
-#include <endian/endian_base_t.h>
+#include <endian/endian_base.h>
 
 namespace endian {
 
-ENDIAN_BEGIN_CLASS(le_uint16_t, uint16_t)
- private:
-  uint8_t lsb_;  // little-endian: lsb first
-  uint8_t msb_;  // little-endian: msb last
-ENDIAN_END_CLASS(le_uint16_t, uint16_t)
+typedef endian_base<uint16_t, endianness_t::LITTLE> le_uint16_t;
 
 };  // namespace endian
 #endif  // ENDIAN_LE_UINT16_T_H_

@@ -1,11 +1,9 @@
 cmake_minimum_required(VERSION 3.5)
 project(Endian VERSION 0.1)
-
+set(CMAKE_CXX_STANDARD 11)
+set(CXX_STANDARD_REQUIRED TRUE)
 add_library(endian STATIC
-  src/be_uint16_t.cpp
-  src/be_uint24_t.cpp
-  src/le_uint16_t.cpp
-  src/le_uint24_t.cpp
+  src/endian_base.cpp
 )
 
 include_directories(include)
@@ -28,9 +26,9 @@ function(endian_add_test TEST_NAME)
 endfunction()
 
 endian_add_test(be_uint16_t)
-endian_add_test(be_uint24_t)
+endian_add_test(be_uint32_t)
 endian_add_test(le_uint16_t)
-endian_add_test(le_uint24_t)
+endian_add_test(le_uint32_t)
 
 install(
   TARGETS endian
